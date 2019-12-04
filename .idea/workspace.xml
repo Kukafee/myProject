@@ -170,7 +170,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1575335823032</updated>
-      <workItem from="1575335828363" duration="52312000" />
+      <workItem from="1575335828363" duration="57744000" />
     </task>
     <servers />
   </component>
@@ -181,19 +181,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/InterestLabel_1_2.py</url>
-          <line>38</line>
-          <option name="timeStamp" value="22" />
+          <url>file://$PROJECT_DIR$/InterestLabel_1.py</url>
+          <line>64</line>
+          <option name="timeStamp" value="74" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/InterestLabel_1_2.py</url>
-          <line>37</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/InterestLabel_1_2.py</url>
-          <line>36</line>
-          <option name="timeStamp" value="24" />
+          <line>64</line>
+          <option name="timeStamp" value="75" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
