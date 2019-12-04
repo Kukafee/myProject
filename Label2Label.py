@@ -10,6 +10,8 @@ import matplotlib.pyplot as plt
 from pandas import Series, DataFrame
 from ArticleClassificationLabel import ArticleCalssification
 from APPbehaviorLabel import APPbehaviorClassifi
+from InterestLabel_1 import Interest_1
+from InterestLabel_1_2 import Interest_1_2
 
 excelPath = './file/Databank_channel_V26.xlsx'
 outputPath = './file/outPutLabel.xlsx'
@@ -20,7 +22,7 @@ sheetname = 'output'
 # outputPath 标签映射生成后文件路径
 def Lable2label(excelPath, sheetname, outputPath):
 
-    # 利用pandas读取excel表单
+    # 利用pandas读取excel表单，即DataFrame格式的df_Databank
     df_Databank = pd.read_excel(excelPath, sheet_name='output')
 
     # 获取df_Databank 的一级标签列表
@@ -43,6 +45,24 @@ def Lable2label(excelPath, sheetname, outputPath):
     for i in range(len(df_Databank)):
         label1_label2 = str(df_Databank.loc[i, '一级标签']) + '_' + str(df_Databank.loc[i, '二级标签'])
         df_Databank.loc[i, '文章分类标签'] = ArticleCalssification(label1_label2)
+
+    # 在df_Databank中增加一列 'APP行为标签'
+    df_Databank['App行为'] = ''
+    for i in range(len(df_Databank)):
+        label1_label2 = str(df_Databank.loc[i, '一级标签']) + '_' + str(df_Databank.loc[i, '二级标签'])
+        df_Databank.loc[i, 'App行为'] = APPbehaviorClassifi(label1_label2)
+
+    # # 在df_Databank中增加一列 '兴趣定向(一级标签）'
+    # df_Databank['兴趣定向(一级)'] = ''
+    # for i in range(len(df_Databank)):
+    #     label1_label2 = str(df_Databank.loc[i, '一级标签']) + '_' + str(df_Databank.loc[i, '二级标签'])
+    #     df_Databank.loc[i, 'App行为'] = Interest_1(label1_label2)
+
+    # # 在df_Databank中增加一列 '兴趣定向(一级&二级标签）'
+    # df_Databank['兴趣定向(一级&二级)'] = ''
+    # for i in range(len(df_Databank)):
+    #     label1_label2 = str(df_Databank.loc[i, '一级标签']) + '_' + str(df_Databank.loc[i, '二级标签'])
+    #     df_Databank.loc[i, 'App行为'] = Interest_1_2(label1_label2)
 
     # 将重新生成的df_Databank 写入 excel文件
     if os.path.exists(outputPath):
