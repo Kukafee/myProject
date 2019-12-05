@@ -1,5 +1,5 @@
 
-# 兴趣定向 标签映射函数
+# 兴趣定向 一级&二级标签映射函数
 def Interest_1_2(keys):
 
     labelDic = {

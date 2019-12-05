@@ -52,17 +52,17 @@ def Lable2label(excelPath, sheetname, outputPath):
         label1_label2 = str(df_Databank.loc[i, '一级标签']) + '_' + str(df_Databank.loc[i, '二级标签'])
         df_Databank.loc[i, 'App行为'] = APPbehaviorClassifi(label1_label2)
 
-    # # 在df_Databank中增加一列 '兴趣定向(一级标签）'
-    # df_Databank['兴趣定向(一级)'] = ''
-    # for i in range(len(df_Databank)):
-    #     label1_label2 = str(df_Databank.loc[i, '一级标签']) + '_' + str(df_Databank.loc[i, '二级标签'])
-    #     df_Databank.loc[i, 'App行为'] = Interest_1(label1_label2)
+    # 在df_Databank中增加一列 '兴趣定向(一级标签）'
+    df_Databank['兴趣定向(一级)'] = ''
+    for i in range(len(df_Databank)):
+        label1_label2 = str(df_Databank.loc[i, '一级标签']) + '_' + str(df_Databank.loc[i, '二级标签'])
+        df_Databank.loc[i, '兴趣定向(一级)'] = Interest_1(label1_label2)
 
-    # # 在df_Databank中增加一列 '兴趣定向(一级&二级标签）'
-    # df_Databank['兴趣定向(一级&二级)'] = ''
-    # for i in range(len(df_Databank)):
-    #     label1_label2 = str(df_Databank.loc[i, '一级标签']) + '_' + str(df_Databank.loc[i, '二级标签'])
-    #     df_Databank.loc[i, 'App行为'] = Interest_1_2(label1_label2)
+    # 在df_Databank中增加一列 '兴趣定向(一级&二级标签）'
+    df_Databank['兴趣定向(一级&二级)'] = ''
+    for i in range(len(df_Databank)):
+        label1_label2 = str(df_Databank.loc[i, '一级标签']) + '_' + str(df_Databank.loc[i, '二级标签'])
+        df_Databank.loc[i, '兴趣定向(一级&二级)'] = Interest_1_2(label1_label2)
 
     # 将重新生成的df_Databank 写入 excel文件
     if os.path.exists(outputPath):
