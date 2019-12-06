@@ -1,9 +1,13 @@
-P_79259119CAWHDHRY                              # 用户名
-    0                                           # 性别
-    39                                          # 年龄
-    4                                           # ？
-    北京    北京    北京市  北京    大兴区           # 地区
-    {
+P_79259119CAWHDHRY                              # mid               string
+    0                                           # sex               int
+    39                                          # age               int
+    4                                           # income(收入）      int
+    北京                                         # province（省份）   string
+    北京                                         # city （城市）      string
+    北京市                                       # l_province        string
+    北京                                         # l_city            string
+    大兴区                                       # l_area            string
+    {                                           # app_freq          map<string,map<string,ing>>
     "3004":{"daycount":1,"pv":3,"freq":3},      # "3004" App代号; "daycount" 使用天数; "pv" ; "freq" 频率
     "480":{"daycount":1,"pv":3,"freq":3},
     "442":{"daycount":17,"pv":610,"freq":1},
@@ -82,7 +86,7 @@ P_79259119CAWHDHRY                              # 用户名
     "1480":{"daycount":9,"pv":124,"freq":1},
     "3021":{"daycount":26,"pv":874,"freq":1}
     }
-    {
+    {                                            # app_freq          map<string,map<string,ing>>
     "87":{"daycount":2,"pv":16,"freq":2},
     "88":{"daycount":1,"pv":2,"freq":3},
     "45":{"daycount":1,"pv":3,"freq":3},
@@ -126,5 +130,5 @@ P_79259119CAWHDHRY                              # 用户名
     "139":{"daycount":9,"pv":30,"freq":2},
     "20":{"daycount":7,"pv":27,"freq":1}
     }
-    liantong
-    201909
+    liantong                                # op（运营商）     string
+    201909                                  # m(日期/月份）     int

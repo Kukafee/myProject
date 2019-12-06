@@ -4,7 +4,7 @@ def ageLabel(age):
     age = int(age)
     label = ''
     # 如果年龄定义为 0， 则表示为年龄不限
-    if age == 0:
+    if age == -1:
         label = '不限'
     elif age >= 18 and age <= 23:
         label = '18-23'
@@ -16,6 +16,8 @@ def ageLabel(age):
         label = '41-49'
     elif age >= 50:
         label = '50+'
+    else:
+        label = '不限'
 
     return label
 
