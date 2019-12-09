@@ -8,19 +8,24 @@ import openpyxl
 import xlrd
 import matplotlib.pyplot as plt
 from pandas import Series, DataFrame
-from ArticleClassificationLabel import ArticleCalssification
-from APPbehaviorLabel import APPbehaviorClassifi
-from InterestLabel_1 import Interest_1
-from InterestLabel_1_2 import Interest_1_2
+from label.ArticleClassificationLabel import ArticleCalssification
+from label.APPbehaviorLabel import APPbehaviorClassifi
+from label.InterestLabel_1 import Interest_1
+from label.InterestLabel_1_2 import Interest_1_2
 
-excelPath = './file/Databank_channel_V26.xlsx'
-outputPath = './file/outPutLabel.xlsx'
+excelPath = './outPutFile/'
+excelName = 'Databank_channel_V26.xlsx'
+excelFile = os.path.join(excelPath, excelName)
+
+outputPath = './outPutFile/'
+outputFileName= 'outPutLabel.xlsx'
+outputFile = os.path.join(outputPath, outputFileName)
 sheetname = 'output'
 
 # inputPath 需要映射excel文件路径
 # sheetname excel中表单名字
 # outputPath 标签映射生成后文件路径
-def Lable2label(excelPath, sheetname, outputPath):
+def Lable2label(excelFile, sheetname, outputPath):
 
     # 利用pandas读取excel表单，即DataFrame格式的df_Databank
     df_Databank = pd.read_excel(excelPath, sheet_name='output')
@@ -67,7 +72,7 @@ def Lable2label(excelPath, sheetname, outputPath):
     # 将重新生成的df_Databank 写入 excel文件
     if os.path.exists(outputPath):
         os.remove(outputPath)
-    df_Databank.to_excel(outputPath, index=False, sheet_name='output')
+    df_Databank.to_excel(outputFile, index=False, sheet_name='output')
 
 
 if __name__ == '__main__':
