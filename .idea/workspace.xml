@@ -39,7 +39,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.AppFreq">
+  <component name="RunManager" selected="Python.dataProcess">
     <configuration name="AppFreq" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="myProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -152,10 +152,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.dataProcess" />
         <item itemvalue="Python.AppFreq" />
         <item itemvalue="Python.AppInfo" />
         <item itemvalue="Python.Json2Value (1)" />
-        <item itemvalue="Python.dataProcess" />
         <item itemvalue="Python.Json2Value" />
       </list>
     </recent_temporary>
@@ -172,7 +172,7 @@
       <updated>1575335823032</updated>
       <workItem from="1575335828363" duration="86093000" />
       <workItem from="1575856416563" duration="31525000" />
-      <workItem from="1575967604959" duration="10506000" />
+      <workItem from="1575967604959" duration="20447000" />
     </task>
     <servers />
   </component>
@@ -188,8 +188,8 @@
     <SUITE FILE_PATH="coverage/myProject$Label2Label.coverage" NAME="Label2Label Coverage Results" MODIFIED="1575528986940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/myProject$ArticleClassificationLabel.coverage" NAME="ArticleClassificationLabel Coverage Results" MODIFIED="1575443750159" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/myProject$Json2Value__1_.coverage" NAME="Json2Value (1) Coverage Results" MODIFIED="1575967501678" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dataprocess" />
-    <SUITE FILE_PATH="coverage/myProject$dataProcess.coverage" NAME="dataProcess Coverage Results" MODIFIED="1575966546691" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dataprocess" />
-    <SUITE FILE_PATH="coverage/myProject$AppFreq.coverage" NAME="AppFreq Coverage Results" MODIFIED="1575979234328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dataprocess" />
+    <SUITE FILE_PATH="coverage/myProject$dataProcess.coverage" NAME="dataProcess Coverage Results" MODIFIED="1576035331347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dataprocess" />
+    <SUITE FILE_PATH="coverage/myProject$AppFreq.coverage" NAME="AppFreq Coverage Results" MODIFIED="1576029619165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dataprocess" />
     <SUITE FILE_PATH="coverage/myProject$Label.coverage" NAME="Label Coverage Results" MODIFIED="1575433735692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/myProject$label2label.coverage" NAME="label2label Coverage Results" MODIFIED="1575373236239" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/myProject$InterestLabel_1_2.coverage" NAME="InterestLabel_1_2 Coverage Results" MODIFIED="1575528422954" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

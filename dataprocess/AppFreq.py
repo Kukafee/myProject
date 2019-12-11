@@ -3,26 +3,9 @@ import os
 import pandas as pd
 from pandas import Series, DataFrame
 
-# 测试数据
-dataPath = '../data/'
-testfileName = 'outdata.csv'
-# 路径拼接
-filePath = os.path.join(dataPath, testfileName)
-# print(filePath)
-# 测试用df_data数据
-df_data = pd.read_csv(filePath, index_col=1)    # index_col=0 表示设置第0列为索引index
-# print(type(df_data))
-# print(df_data)
-# print(df_data.columns)
 
-# 测试数据
-# strs = ['{"3004":{"daycount":1,"pv":3,"freq":3}, "3003":{"daycount":1,"pv":3,"freq":3}, "3002":{"daycount":1,"pv":3,"freq":3}}']
-# df_data = DataFrame({'app_freq':strs}, index=['P_7925911BF4SXMURP'])
-# mid = 'P_79259119CAWHDHRY'
-
-
-# 提取app_freq特征的函数，接收mid参数，返回mid样本的app_freq的Series
-def appFreq(mid):
+# 提取app_freq特征的函数，接收mid参数（字符串类型），返回mid样本的app_freq的Series
+def appFreq(af_data, mid):
     # 新建空的 Series
     # Ser_appFreq = Series([], index=[])
     # Ser_appFreq.index = ['mid']
@@ -80,15 +63,75 @@ def appFreq(mid):
 
     # app_freq = df_data['app_freq']
     # print(type(app_freq))
+# app_freq 映射为列表的函数，是二维列表， [["daycount", "pv", "freq"], ["daycount", "pv", "freq"], ...]
+def appFreq2(strDict):
+    dictData = eval(strDict)
+    ListKeys = list(dictData.keys())
+    appFreqList = []
+    ListData = []
+    for key in ListKeys:
+        values = dictData[key]  # 类型为 <class 'dict'>
+        listkeys = list(values.keys())  # ["daycount", "pv", "freq"]
+        listvalues = list(values.values())  # [1, 3, 3]
+        # 添加每个app的相应的值
+        ListData.append(listvalues)
+    # python 列表是有序的吗？
+    appFreqList.append(ListKeys)
+    appFreqList.append(ListData)
+
+    return appFreqList
+
+def labelFreq2(strDict):
+    dictData = eval(strDict)
+    ListKeys = list(dictData.keys())
+    labelFreqList = []
+    ListData = []
+    for key in ListKeys:
+        values = dictData[key]  # 类型为 <class 'dict'>
+        listkeys = list(values.keys())  # ["daycount", "pv", "freq"]
+        listvalues = list(values.values())  # [1, 3, 3]
+        # 添加每个app的相应的值
+        ListData.append(listvalues)
+    # 将ListKeys 与 ListData 均添加到labelFreqList中
+    labelFreqList.append(ListKeys)
+    labelFreqList.append(ListData)
+    return labelFreqList
 
 
 if __name__ == '__main__':
-    test_P_79259119CAWHDHRY_app_freq = appFreq('P_79259119CAWHDHRY')
-    print(test_P_79259119CAWHDHRY_app_freq)
-    print(type(test_P_79259119CAWHDHRY_app_freq))
-    print(len(test_P_79259119CAWHDHRY_app_freq))
+    # 测试数据
+    dataPath = '../data/'
+    testfileName = 'outdata.csv'
+    # 路径拼接
+    filePath = os.path.join(dataPath, testfileName)
+    # print(filePath)
+    # 测试用df_data数据
+    df_data = pd.read_csv(filePath, index_col=1)  # index_col=0 表示设置第0列为索引index
+    # print(type(df_data))
+    # print(df_data)
+    # print(df_data.columns)
 
-    test_P_7925911D61ZMKZLN_app_freq = appFreq('P_7925911D61ZMKZLN')
-    print(test_P_7925911D61ZMKZLN_app_freq)
-    print(type(test_P_7925911D61ZMKZLN_app_freq))
-    print(len(test_P_7925911D61ZMKZLN_app_freq))
+    # 测试数据
+    # strs = ['{"3004":{"daycount":1,"pv":3,"freq":3}, "3003":{"daycount":1,"pv":3,"freq":3}, "3002":{"daycount":1,"pv":3,"freq":3}}']
+    # df_data = DataFrame({'app_freq':strs}, index=['P_7925911BF4SXMURP'])
+    # mid = 'P_79259119CAWHDHRY'
+
+
+    # test_P_79259119CAWHDHRY_app_freq = appFreq(df_data, 'P_79259119CAWHDHRY')
+    # print(test_P_79259119CAWHDHRY_app_freq)
+    # print(type(test_P_79259119CAWHDHRY_app_freq))
+    # print(len(test_P_79259119CAWHDHRY_app_freq))
+    #
+    # test_P_7925911D61ZMKZLN_app_freq = appFreq(df_data, 'P_7925911D61ZMKZLN')
+    # print(test_P_7925911D61ZMKZLN_app_freq)
+    # print(type(test_P_7925911D61ZMKZLN_app_freq))
+    # print(len(test_P_7925911D61ZMKZLN_app_freq))
+
+    strDicts = '{"1488":{"daycount":1,"pv":4,"freq":3},"1927":{"daycount":1,"pv":4,"freq":3},"383":{"daycount":4,"pv":305,"freq":3}}'
+    appLists = appFreq2(strDicts)
+    print(appLists)
+
+    appLists = labelFreq2(strDicts)
+    print(appLists)
+
+
