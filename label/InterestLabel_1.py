@@ -254,7 +254,7 @@ def Interest_1(keys):
     # return labelDic.get(keys, default=[])
     labelstring = ''
     for lable in labelDic[keys]:
-        labelstring += (lable + ',')
+        labelstring += (lable + ' ')
     return labelstring
 
 if __name__ == '__main__':
