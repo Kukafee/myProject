@@ -8,7 +8,7 @@ import openpyxl
 import xlrd
 import matplotlib.pyplot as plt
 from pandas import Series, DataFrame
-from ArticleClassificationLabel import ArticleCalssification
+from label.ArticleClassificationLabel import ArticleCalssification
 
 
 # 定义文件路径
