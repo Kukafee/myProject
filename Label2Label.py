@@ -94,8 +94,8 @@ def Lable2label(excelPath, sheetname, outputPath):
     if os.path.exists(outputFile_csv):
         os.remove(outputFile_csv)
     #  sep='-' 设置分割符    index=False 设置不保留索引     header=False 设置不保留列名
-    # df_Databank_csv.to_csv(outputFile_csv, index=False, sep=',', hearder=False)
-    df_Databank.to_csv(outputFile_csv, index=False, sep=',', header=False, columns=['Rule Code', '文章分类标签', 'App行为', '兴趣定向(一级)', '兴趣定向(一级&二级)'])
+    # df_Databank_csv.to_csv(outputFile_csv, index=False, sep=',', header=False)
+    df_Databank.to_csv(outputFile_csv, index=False, sep=',', header=False, columns=['Rule Code','APP name', '文章分类标签', 'App行为', '兴趣定向(一级)', '兴趣定向(一级&二级)'])
 
 
 if __name__ == '__main__':
