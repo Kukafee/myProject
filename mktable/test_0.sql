@@ -133,6 +133,32 @@ load data local inpath '/home/wangl/pangxk/distinct/mid_name_t1_t2_.csv' overwri
 ----------------------------------------------------------------------------------------
 
 
+drop table if exists test1;
+create table if not exists test1(
+name string,
+age int,
+address string)
+row format delimited
+fields terminated by ',';
+insert into table test1 values
+('xiaoming', 23, 'hebei'),
+('xiaohua', 22, 'hubei'),
+('zhangsan', 25, 'beiing'),
+('xiaoming', 23, 'hebei'),
+('xiaoming', 22, 'hebei'),
+('xiaoming', 21, 'tianjin');
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

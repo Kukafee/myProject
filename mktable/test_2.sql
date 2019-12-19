@@ -1,6 +1,8 @@
--- /Users/edz/pang/code/sublime/task_2.sql
+
+-- /Users/edz/pang/code/sublime/mktable/test_2.sql
 -- -------------------------------------------------
--- 去重复 使用了 distinct
+-- 去重复 使用了 distinct 
+-- 创建并生成了 分区表 mid_app_labelp
 -- -------------------------------------------------
 
 -- 0.创建并使用数据库pangxk_
@@ -176,6 +178,30 @@ select distinct mid, appid, appname, daycount, pv, freq, article, behavior, inte
 from (select distinct mid, appid, daycount, pv, freq from mid_appid) as t1 --
 join (select distinct app_id, appname, article, behavior, interest1, interest1_2 from app_label) as t2
 on t1.appid = t2.app_id;
+
+-- 创建 mid_app_labelp 分区数据表
+drop table if exists mid_app_labelp;
+create table if not exists mid_app_labelp(
+m_id string,
+appid string,
+appname string,
+daycount int,
+pv int,
+freq int,
+article string,
+behavior string,
+interest1 string,
+interest1_2 string)
+partitioned by (
+m int comment 'month')
+row format delimited
+fields terminated by ',';
+-- 把 mid_app_label 数据拷贝至 分区表 mid_app_labelp
+insert into mid_app_labelp partition(m=201909)
+select
+m_id, appid, appname, daycount, pv, freq, article, behavior, interest1, interest1_2
+from mid_app_label;
+
 
 -- 创建 pers_feature 数据表
 drop table if exists pers_feature;
