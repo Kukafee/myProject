@@ -95,6 +95,10 @@ def Lable2label(input, insheet, output, outsheet):
     # df_Databank_csv.to_csv(outputFile_csv, index=False, sep=',', header=False)
     df_Databank.to_csv(outputName_csv, index=False, sep=',', header=False, columns=['Rule Code','APP name', '文章分类标签', 'App行为', '兴趣定向(一级)', '兴趣定向(一级&二级)'])
 
+    # 输出app_local app本地一级标签和二级标签(appid  appname  label1  label2)
+    df_Databank.to_csv(app_localData, index=False, sep=',', header=False,
+                       columns=['Rule Code', 'APP name', '一级标签', '二级标签'])
+
 
 if __name__ == '__main__':
     # 生成 app标签文件 app_label.csv 和 .xlsx 两种格式 ( ./output/outputtable/ )

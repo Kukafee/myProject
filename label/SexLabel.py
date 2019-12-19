@@ -14,9 +14,9 @@ def sexLabel(fileData):
         if sex == -1:
             label = '未知'
         elif sex == 0:
-            label = '女'
-        elif sex == 1:
             label = '男'
+        elif sex == 1:
+            label = '女'
         else:
             label = ''
         df_sex.loc[i, 'label'] = label

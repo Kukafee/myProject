@@ -39,7 +39,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.Label2Label">
     <configuration name="InterestLabel_1_2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="myProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -152,11 +152,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test" />
         <item itemvalue="Python.Label2Label" />
+        <item itemvalue="Python.SexLabel" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.Path" />
         <item itemvalue="Python.InterestLabel_1_2" />
-        <item itemvalue="Python.SexLabel" />
       </list>
     </recent_temporary>
   </component>
@@ -173,7 +173,8 @@
       <workItem from="1575335828363" duration="86093000" />
       <workItem from="1575856416563" duration="31525000" />
       <workItem from="1575967604959" duration="20447000" />
-      <workItem from="1576137158645" duration="28417000" />
+      <workItem from="1576137158645" duration="28967000" />
+      <workItem from="1576719945497" duration="4321000" />
     </task>
     <servers />
   </component>
@@ -186,8 +187,8 @@
     <SUITE FILE_PATH="coverage/myProject$AppInfo.coverage" NAME="AppInfo Coverage Results" MODIFIED="1575973880703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dataprocess" />
     <SUITE FILE_PATH="coverage/myProject$Path.coverage" NAME="Path Coverage Results" MODIFIED="1576664715435" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/myProject$AgeLabel.coverage" NAME="AgeLabel Coverage Results" MODIFIED="1576655699002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/label" />
-    <SUITE FILE_PATH="coverage/myProject$SexLabel.coverage" NAME="SexLabel Coverage Results" MODIFIED="1576657502773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/label" />
-    <SUITE FILE_PATH="coverage/myProject$Label2Label.coverage" NAME="Label2Label Coverage Results" MODIFIED="1576664723993" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/myProject$SexLabel.coverage" NAME="SexLabel Coverage Results" MODIFIED="1576742719371" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/label" />
+    <SUITE FILE_PATH="coverage/myProject$Label2Label.coverage" NAME="Label2Label Coverage Results" MODIFIED="1576742795550" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/myProject$ArticleClassificationLabel.coverage" NAME="ArticleClassificationLabel Coverage Results" MODIFIED="1575443750159" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/myProject$Json2Value__1_.coverage" NAME="Json2Value (1) Coverage Results" MODIFIED="1575967501678" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dataprocess" />
     <SUITE FILE_PATH="coverage/myProject$AgeLabel2.coverage" NAME="AgeLabel2 Coverage Results" MODIFIED="1576492776041" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/label" />

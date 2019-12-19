@@ -14,6 +14,8 @@ outputPath = '/Users/edz/pang/code/pycharm/myProject/output/outputtable/'
 inputName = 'appid_table.xlsx'
 # 输出 app标签数据表 名称 ppid_table
 outputName = 'appid_table_' + current_time
+# 输出 app本地标签
+app_local = 'app_local.csv'
 # 输出 性别映射表 名称
 sex_ttsex = 'sex_ttsex.csv'
 # 输出 年龄映射表 名称
@@ -25,6 +27,8 @@ app_label = 'app_label.csv'
 inputData = os.path.join(inputPath, inputName)
 # 合成输出app标签数据表
 outputData = os.path.join(outputPath, outputName)
+# 合成输出app本地标签数据表
+app_localData = os.path.join(outputPath, app_local)
 # 合成输出性别映射表
 sex_ttsexData = os.path.join(outputPath, sex_ttsex)
 # 合成输出年龄映射表
