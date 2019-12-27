@@ -1,6 +1,6 @@
 
 # 文章分类标签映射函数
-def ArticleCalssification(keys):
+def ArticleClassification(keys):
 
     labelDic = {
         '教育培训_K12教育':['教育'],
@@ -235,5 +235,5 @@ def ArticleCalssification(keys):
 
 if __name__ == '__main__':
     # 测试
-    label_list = ArticleCalssification('新闻资讯_垂直新闻')
+    label_list = ArticleClassification('新闻资讯_垂直新闻')
     print(label_list)

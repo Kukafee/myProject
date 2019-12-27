@@ -8,7 +8,7 @@ import pandas as pd
 # import xlrd
 # import matplotlib.pyplot as plt
 # from pandas import Series, DataFrame
-from label.ArticleClassificationLabel import ArticleCalssification
+from label.ArticleClassificationLabel import ArticleClassification
 from label.APPbehaviorLabel import APPbehaviorClassifi
 from label.InterestLabel_1 import Interest_1
 from label.InterestLabel_1_2 import Interest_1_2
@@ -60,7 +60,7 @@ def Lable2label(input, insheet, output, outsheet):
     df_Databank['文章分类标签'] = ''
     for i in range(len(df_Databank)):
         label1_label2 = str(df_Databank.loc[i, '一级标签']) + '_' + str(df_Databank.loc[i, '二级标签'])
-        df_Databank.loc[i, '文章分类标签'] = ArticleCalssification(label1_label2)
+        df_Databank.loc[i, '文章分类标签'] = ArticleClassification(label1_label2)
 
     # 在df_Databank中增加一列 'APP行为标签'
     df_Databank['App行为'] = ''
