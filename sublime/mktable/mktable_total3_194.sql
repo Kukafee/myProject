@@ -63,24 +63,24 @@ on(t1.appid=t2.appid);
 -- where length(feature_name)<>0 and feature_name is not null;
 
 -- -- ----------------------------------------------------------------------------
--- -- 建表: mid_behavior app行为 特征表
+-- -- 建表: mid_behavior app行为 特征表. Time taken: 19209.452 seconds
 -- -- ----------------------------------------------------------------------------
-drop table if exists mid_behavior;   -- 表名
-create table if not exists mid_behavior   -- 表名
-    (
-    mid string,
-    behavior string       -- 字段名
-    )
-row format delimited
-fields terminated by ','
-stored as orc;
--- 插入数据
-insert into mid_behavior(mid, behavior)
-select
-    distinct t2.mid, t1.behavior
-from app_behavior t1 
-inner join mid_appid2 t2         -- mid_appid2
-on(t1.appid=t2.appid);
+-- drop table if exists mid_behavior;   -- 表名
+-- create table if not exists mid_behavior   -- 表名
+--     (
+--     mid string,
+--     behavior string       -- 字段名
+--     )
+-- row format delimited
+-- fields terminated by ','
+-- stored as orc;
+-- -- 插入数据
+-- insert into mid_behavior(mid, behavior)
+-- select
+--     distinct t2.mid, t1.behavior
+-- from app_behavior t1 
+-- inner join mid_appid2 t2         -- mid_appid2
+-- on(t1.appid=t2.appid);
 
 
 -- drop table if exists mid_behavior;   -- 表名
@@ -103,25 +103,25 @@ on(t1.appid=t2.appid);
 -- where length(feature_name)<>0 and feature_name is not null;
 
 -- -- ----------------------------------------------------------------------------
--- -- 建表: mid_interest1 兴趣定向(一级) 特征表
+-- -- 建表: mid_interest1 兴趣定向(一级) 特征表  9421.205 seconds
 -- -- ----------------------------------------------------------------------------
-set mapreduce.job.reduce.slowstart.completedmaps=0.8;
-drop table if exists mid_interest1;   -- 表名
-create table if not exists mid_interest1   -- 表名
-    (
-    mid string,
-    interest1 string       -- 字段名
-    )
-row format delimited
-fields terminated by ','
-stored as orc;
--- 插入数据
-insert into mid_interest1(mid, interest1)
-select
-    distinct t2.mid, t1.interest1
-from app_interest1 t1 
-inner join mid_appid2 t2
-on(t1.appid=t2.appid);
+-- set mapreduce.job.reduce.slowstart.completedmaps=0.8;
+-- drop table if exists mid_interest1;   -- 表名
+-- create table if not exists mid_interest1   -- 表名
+--     (
+--     mid string,
+--     interest1 string       -- 字段名
+--     )
+-- row format delimited
+-- fields terminated by ','
+-- stored as orc;
+-- -- 插入数据
+-- insert into mid_interest1(mid, interest1)
+-- select
+--     distinct t2.mid, t1.interest1
+-- from app_interest1 t1 
+-- inner join mid_appid2 t2
+-- on(t1.appid=t2.appid);
 
 
 -- drop table if exists mid_interest1;   -- 表名

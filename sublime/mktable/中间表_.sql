@@ -24,7 +24,7 @@
 -- mapreduce.job.reduce.slowstart.completedmaps参数，默认为0.05，即map完成0.05后reduce就开始copy，
 -- 如果集群资源不够，有可能导致reduce把资源全抢光，可以把这个参数调整到0.8，map完成80%后才开始reduce copy。
 -- ----------------------------------------------------------------------------
--- mid_app_labelp : 34427211
+-- mid_app_labelp : 34 427 211
 -- 优化Hive执行引擎
 set hive.execution.engine=tez;    -- 使用 tez 引擎
 set hive.prewarm.enabled=true;    -- 告诉hive创建Tez容器
@@ -37,7 +37,7 @@ set hive.vectorized.execution.enabled=true;    -- 使用矢量化查询执行,�
 
 set hive.groupby.skewindata=true
 
-set mapreduce.job.reduce.slowstart.completedmaps=0.8
+set mapreduce.job.reduce.slowstart.completedmaps=0.8;
 -- ----------------------------------------------------------------------------
 -- ----------------------------------------------------------------------------
 use pangxk;

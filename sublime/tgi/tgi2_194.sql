@@ -316,33 +316,36 @@ use pangxk;
 -- 初步分析，应该使用去重的数值进行计算
 -- app特征
 -- -- tgi_article 特征      
---        总体 select count(mid) from mid_article;    4 389 569 631   
+--        总体 select count(mid) from mid_article;    4 389 569 631      4389569631 
 --        总体 select count(distinct mid) from mid_article;  卡死！ 
 --            select count(*) from (select distinct mid from mid_article);-- 优化去重聚合
 -- 
---        目标 select count(mid) from mid_article_p;  
---        目标 select count(distinct mid) from mid_article_p;   349 ？     
+--        目标 select count(mid) from mid_article_p;  10369
+--        目标 select count(distinct mid) from mid_article_p;   342
+-- ---------------------------------------------------------------------------------------
 --    tgi_behavior 特征
---        总体 select count(mid) from mid_behavior;
---        总体 select count(distinct mid) from mid_behavior;
---            select count(*) from (select distinct mid from mid_behavior);-- 优化去重聚合
+--        总体 select count(mid) from mid_behavior;  2585354237   2585354237
+--        总体 select count(distinct mid) from mid_behavior;    
+--            select count(mid) from (select distinct(mid)from mid_behavior);-- 优化去重聚合         
 
---        目标 select count(mid) from mid_behavior_p;     
---        目标 select count(distinct mid) from mid_behavior_p;            
+--        目标 select count(mid) from mid_behavior_p;   5228      
+--        目标 select count(distinct mid) from mid_behavior_p;  342    
+-- ---------------------------------------------------------------------------------------
 --    tgi_interest1 特征
---        总体 select count(mid) from mid_interest1;
+--        总体 select count(mid) from mid_interest1;1931106137
 --        总体 select count(distinct mid) from mid_interest1;
 --            select count(*) from (select distinct mid from mid_interest1);-- 优化去重聚合
 
---        目标 select count(mid) from mid_interest1_p;
---        目标 select count(distinct mid) from mid_interest1_p;
+--        目标 select count(mid) from mid_interest1_p;4558
+--        目标 select count(distinct mid) from mid_interest1_p;342
+-- ---------------------------------------------------------------------------------------
 --    tgi_interest1_2 特征
 --        总体 select count(mid) from mid_interest1_2;
 --        总体 select count(distinct mid) from mid_interest1_2;
 --            select count(*) from (select distinct mid from mid_interest1_2);-- 优化去重聚合
 
---        目标 select count(mid) from mid_interest1_2_p;
---        目标 select count(distinct mid) from mid_interest1_2_p;
+--        目标 select count(mid) from mid_interest1_2_p;19588
+--        目标 select count(distinct mid) from mid_interest1_2_p;342
 -- 
 -- 
 -- -- ----------------------------------------------------------------------------   
@@ -403,7 +406,7 @@ select
 from -- -
     (select
     table_target.feature as feature,
-    table_target.feature_count / 349 as feature_target   -- -------------目标群体样本个数
+    table_target.feature_count / 342 as feature_target   -- -------------目标群体样本个数
     from
     (select behavior feature, count(distinct(mid)) feature_count   -- -----字段名
     from pangxk.mid_behavior_p    -- -------------------------------------选择数据库和表
@@ -411,7 +414,7 @@ from -- -
 join -- -
     (select
     table_total.feature as feature,
-    table_total.feature_count / 2560647 as feature_total   -- ------------总体样本个数
+    table_total.feature_count / 2 as feature_total   -- ------------总体样本个数
     from
     (select behavior feature, count(distinct(mid)) feature_count   -- ------字段名
     from pangxk.mid_behavior    -- ---------------------------------------选择数据库和表
@@ -516,6 +519,51 @@ drop table if exists mid_interest1_2_p;
 --      年龄标签映射表 age_ttage
 --      性别标签映射表 sex_ttsex
 --      
+-- ----------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------
+-- 生成 性别TGI表
+INSERT OVERWRITE local DIRECTORY '/root/pangxk/tgi/tgivalues/tgi_sex.csv'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+select * from pangxk.tgi_sex;
+-- 生成 年龄TGI表
+insert overwrite local directory '/root/pangxk/tgi/tgivalues/tgi_age.csv'
+row format delimited fields terminated by ','
+select * from pangxk.tgi_age;
+-- 生成 归属地省TGI表
+insert overwrite local directory '/root/pangxk/tgi/tgivalues/tgi_province.csv'
+row format delimited fields terminated by ','
+select * from pangxk.tgi_province;
+-- 生成 归属地市TGI表
+insert overwrite local directory '/root/pangxk/tgi/tgivalues/tgi_city.csv'
+row format delimited fields terminated by ','
+select * from pangxk.tgi_city;
+-- 生成 常住地省TGI表
+insert overwrite local directory '/root/pangxk/tgi/tgivalues/tgi_l_province.csv'
+row format delimited fields terminated by ','
+select * from pangxk.tgi_l_province;
+-- 生成 常住地市TGI表
+insert overwrite local directory '/root/pangxk/tgi/tgivalues/tgi_l_city.csv'
+row format delimited fields terminated by ','
+select * from pangxk.tgi_l_city;
+
+-- 生成 文章分类特征TGI表
+insert overwrite local directory '/root/pangxk/tgi/tgivalues/tgi_article.csv'
+row format delimited fields terminated by ','
+select * from pangxk.tgi_article;
+-- 生成 app行为特征TGI表
+insert overwrite local directory '/root/pangxk/tgi/tgivalues/tgi_behavior.csv'
+row format delimited fields terminated by ','
+select * from pangxk.tgi_behavior;
+-- 生成 兴趣定向(一级)特征TGI表
+insert overwrite local directory '/root/pangxk/tgi/tgivalues/tgi_interest1.csv'
+row format delimited fields terminated by ','
+select * from pangxk.tgi_interest1;
+-- 生成 兴趣定向(一级&二级)特征TGI表
+insert overwrite local directory '/root/pangxk/tgi/tgivalues/tgi_interest1_2.csv'
+row format delimited fields terminated by ','
+select * from pangxk.tgi_interest1_2;
+
+
 
 
 
