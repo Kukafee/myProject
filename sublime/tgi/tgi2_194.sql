@@ -42,38 +42,38 @@ use pangxk;
 -- -- ----------------------------------------------------------------------------
 -- -- 创建并生成用户年龄TGI表 tgi_age
 -- -- ----------------------------------------------------------------------------
--- drop table if exists tgi_age;   -- ---1
--- create table if not exists tgi_age(   -- ---1
---     age string,   -- ---1
---     tgi_value double)
--- row format delimited
--- fields terminated by ',';
--- -- 给用户年龄TGI表插入数据
--- insert into
---     tgi_age   -- ---1
--- select
---     rate_total.feature,
---     -- rate_target.feature_target / rate_total.feature_total tgi_value
---     cast(rate_target.feature_target / rate_total.feature_total as decimal(12,6)) as tgi_value  -- 保留6位有效数字且3位小数
--- from -- -
---     (select
---     table_target.feature as feature,
---     table_target.feature_count / 349 as feature_target   -- 目标群体样本个数
---     from
---     (select ttage feature, count(distinct(mid)) feature_count   -- ---1
---     from pangxk.mid_ttlabel_p
---     group by ttage) as table_target) as rate_target   -- ---1
--- join -- -
---     (select
---     table_total.feature as feature,
---     table_total.feature_count / 440466597 as feature_total   -- 总体样本个数 
---     from
---     (select ttage feature, count(distinct(mid)) feature_count   -- ---1
---     from pangxk.mid_ttlabel2
---     group by ttage) as table_total)as rate_total  -- ---1 
--- on -- -
---     rate_target.feature=rate_total.feature
--- order by tgi_value desc;   -- ****降序
+drop table if exists tgi_age;   -- ---1
+create table if not exists tgi_age(   -- ---1
+    age string,   -- ---1
+    tgi_value double)
+row format delimited
+fields terminated by ',';
+-- 给用户年龄TGI表插入数据
+insert into
+    tgi_age   -- ---1
+select
+    rate_total.feature,
+    -- rate_target.feature_target / rate_total.feature_total tgi_value
+    cast(rate_target.feature_target / rate_total.feature_total as decimal(12,6)) as tgi_value  -- 保留6位有效数字且3位小数
+from -- -
+    (select
+    table_target.feature as feature,
+    table_target.feature_count / 349 as feature_target   -- 目标群体样本个数
+    from
+    (select ttage feature, count(distinct(mid)) feature_count   -- ---1
+    from pangxk.mid_ttlabel_p
+    group by ttage) as table_target) as rate_target   -- ---1
+join -- -
+    (select
+    table_total.feature as feature,
+    table_total.feature_count / 440466597 as feature_total   -- 总体样本个数 
+    from
+    (select ttage feature, count(distinct(mid)) feature_count   -- ---1
+    from pangxk.mid_ttlabel2
+    group by ttage) as table_total)as rate_total  -- ---1 
+on -- -
+    rate_target.feature=rate_total.feature
+order by tgi_value desc;   -- ****降序
 
 -- -- ----------------------------------------------------------------------------
 -- -- 创建用户性别TGI表 tgi_sex
@@ -370,17 +370,17 @@ select
 from -- -
     (select
     table_target.feature as feature,
-    table_target.feature_count / 349 as feature_target   -- -------------目标群体样本个数
+    table_target.feature_count / 10369 as feature_target
     from
-    (select article feature, count(distinct(mid)) feature_count   -- -----字段名
+    (select article feature, count(mid) feature_count   -- -----字段名
     from pangxk.mid_article_p    -- -------------------------------------选择数据库和表
     group by article) as table_target) as rate_target   -- ---------------字段名
 join -- -
     (select
     table_total.feature as feature,
-    table_total.feature_count / 2560647 as feature_total   -- ------------总体样本个数
+    table_total.feature_count / 4171909188 as feature_total
     from
-    (select article feature, count(distinct(mid)) feature_count   -- ------字段名
+    (select article feature, count(mid) feature_count   -- ------字段名
     from pangxk.mid_article    -- ---------------------------------------选择数据库和表
     group by article) as table_total)as rate_total   -- -------------------字段名
 on -- -
@@ -406,18 +406,18 @@ select
 from -- -
     (select
     table_target.feature as feature,
-    table_target.feature_count / 342 as feature_target   -- -------------目标群体样本个数
+    table_target.feature_count / 5228 as feature_target
     from
-    (select behavior feature, count(distinct(mid)) feature_count   -- -----字段名
+    (select behavior feature, count(mid) feature_count   -- -----字段名
     from pangxk.mid_behavior_p    -- -------------------------------------选择数据库和表
     group by behavior) as table_target) as rate_target   -- ---------------字段名
 join -- -
     (select
     table_total.feature as feature,
-    table_total.feature_count / 2 as feature_total   -- ------------总体样本个数
+    table_total.feature_count / 2724552423 as feature_total
     from
-    (select behavior feature, count(distinct(mid)) feature_count   -- ------字段名
-    from pangxk.mid_behavior    -- ---------------------------------------选择数据库和表
+    (select behavior feature, count(mid) feature_count   -- ------字段名
+    from pangxk.mid_behavior    -- --------------------------- ------------选择数据库和表
     group by behavior) as table_total)as rate_total   -- -------------------字段名
 on -- -
     rate_target.feature=rate_total.feature
@@ -437,23 +437,22 @@ insert into
     tgi_interest1   -- ---------------------------------------------------表名
 select
     rate_total.feature,
-    -- rate_target.feature_target / rate_total.feature_total tgi_value
     cast(rate_target.feature_target / rate_total.feature_total as decimal(12,6)) as tgi_value
-from -- -
+from
     (select
     table_target.feature as feature,
-    table_target.feature_count / 349 as feature_target   -- -------------目标群体样本个数
+    table_target.feature_count / 4558 as feature_target   --
     from
-    (select interest1 feature, count(distinct(mid)) feature_count   -- -----字段名
-    from pangxk.mid_interest1_p    -- -------------------------------------选择数据库和表
+    (select interest1 feature, count(mid) feature_count   -- -----字段名
+    from pangxk.mid_interest1_p    -- ----------------------------
     group by interest1) as table_target) as rate_target   -- ---------------字段名
-join -- -
+join
     (select
     table_total.feature as feature,
-    table_total.feature_count / 2560647 as feature_total   -- ------------总体样本个数
+    table_total.feature_count / 1931106137 as feature_total   -- 
     from
-    (select interest1 feature, count(distinct(mid)) feature_count   -- ------字段名
-    from pangxk.mid_interest1    -- ---------------------------------------选择数据库和表
+    (select interest1 feature, count(mid) feature_count   -- ------字段名
+    from pangxk.mid_interest1    -- ------------------------------
     group by interest1) as table_total)as rate_total   -- -------------------字段名
 on -- -
     rate_target.feature=rate_total.feature
@@ -478,17 +477,17 @@ select
 from -- -
     (select
     table_target.feature as feature,
-    table_target.feature_count / 349 as feature_target   -- -------------目标群体样本个数
+    table_target.feature_count / 19588 as feature_target   -- 
     from
-    (select interest1_2 feature, count(distinct(mid)) feature_count   -- -----字段名
+    (select interest1_2 feature, count(mid) feature_count   -- -----字段名
     from pangxk.mid_interest1_2_p    -- -------------------------------------选择数据库和表
     group by interest1_2) as table_target) as rate_target   -- ---------------字段名
 join -- -
     (select
     table_total.feature as feature,
-    table_total.feature_count / 2560647 as feature_total   -- ------------总体样本个数
+    table_total.feature_count / 5527776442 as feature_total   -- 
     from
-    (select interest1_2 feature, count(distinct(mid)) feature_count   -- ------字段名
+    (select interest1_2 feature, count(mid) feature_count   -- ------字段名
     from pangxk.mid_interest1_2    -- ---------------------------------------选择数据库和表
     group by interest1_2) as table_total)as rate_total   -- -------------------字段名
 on -- -

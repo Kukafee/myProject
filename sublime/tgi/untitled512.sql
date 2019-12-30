@@ -121,7 +121,7 @@ fields terminated by ','
 stored as orc;
 insert into table mid_behavior_
 select distinct mid from mid_behavior
-select count(mid) from mid_behavior; 
+select count(mid) from mid_behavior_; 
 
 drop table if exists mid_behavior_;
 

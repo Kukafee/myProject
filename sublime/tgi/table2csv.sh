@@ -4,13 +4,18 @@
 # 192.168.0.164 服务器的存储路径path
 # path="/home/wangl/pangxk/tgi/"
 
-# 192.168.0.194 服务器的存储路径path
-path="/root/pangxk/tgi/tgivalues/"
+# 获取当前时间
+time1=$(date "+%m-%d_%H:%M")
 
+# 192.168.0.194 服务器的存储路径path
+path="/root/pangxk/tgi/"
+cd $path
+mkdir tgivalues$time1
+cd tgivalues$time1
 # sqlorder="set hive.cli.print.header=true;select * from pangxk."
 # csv=".csv"
 # dot=";"
-cd $path
+
 # 共 10 个TGI表
 # # feature_array=("tgi_sex" "tgi_age" "tgi_province" "tgi_city" "tgi_l_province" "tgi_l_city" "tgi_article" "tgi_behavior" "tgi_interest1" "tgi_interest1_2")
 # feature_array=("tgi_sex" "tgi_age" "tgi_province" "tgi_city" "tgi_l_province" "tgi_l_city")
@@ -27,10 +32,10 @@ hive -e "set hive.cli.print.header=true;select * from pangxk.tgi_province;" > ./
 hive -e "set hive.cli.print.header=true;select * from pangxk.tgi_city;" > ./tgi_city.csv
 hive -e "set hive.cli.print.header=true;select * from pangxk.tgi_l_province;" > ./tgi_l_province.csv
 hive -e "set hive.cli.print.header=true;select * from pangxk.tgi_l_city;" > ./tgi_l_city.csv
-# hive -e "set hive.cli.print.header=true;select * from pangxk.tgi_article;" > ./tgi_article.csv
-# hive -e "set hive.cli.print.header=true;select * from pangxk.tgi_behavior;" > ./tgi_behavior.csv
-# hive -e "set hive.cli.print.header=true;select * from pangxk.tgi_interest1;" > ./tgi_interest1.csv
-# hive -e "set hive.cli.print.header=true;select * from pangxk.tgi_interest1_2;" > ./tgi_interest1_2.csv
+hive -e "set hive.cli.print.header=true;select * from pangxk.tgi_article;" > ./tgi_article.csv
+hive -e "set hive.cli.print.header=true;select * from pangxk.tgi_behavior;" > ./tgi_behavior.csv
+hive -e "set hive.cli.print.header=true;select * from pangxk.tgi_interest1;" > ./tgi_interest1.csv
+hive -e "set hive.cli.print.header=true;select * from pangxk.tgi_interest1_2;" > ./tgi_interest1_2.csv
 
 
 
