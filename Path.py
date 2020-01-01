@@ -2,7 +2,7 @@ import os
 import time
 
 # 获取当前时刻时间
-current_time =  time.strftime('%Y%m%d_%H%M%S')
+current_time = time.strftime('%Y%m%d_%H%M%S')
 
 # 输入数据表路径
 inputPath = '/Users/edz/pang/code/pycharm/myProject/input/'
@@ -22,6 +22,15 @@ sex_ttsex = 'sex_ttsex.csv'
 age_ttage = 'age_ttage.csv'
 # 输出 app标签映射表 名称
 app_label = 'app_label.csv'
+# 输入标签组合 名称
+labelGroup = 'labelGroup.xlsx'
+# 输出标签着 名称
+outputLabelGroup = 'outLabelGroup.xlsx'
+
+# 合成输入标签组合文件路径
+ilabelGroupData = os.path.join(inputPath, labelGroup)
+# 合成输出标签组合文件路径
+olabelGroupData = os.path.join(outputPath, outputLabelGroup)
 
 # 合成输入原始数据
 inputData = os.path.join(inputPath, inputName)
