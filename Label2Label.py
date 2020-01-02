@@ -80,6 +80,10 @@ def Lable2label(input, insheet, output, outsheet):
         label1_label2 = str(df_Databank.loc[i, '一级标签']) + '_' + str(df_Databank.loc[i, '二级标签'])
         df_Databank.loc[i, '兴趣定向(一级&二级)'] = Interest_1_2(label1_label2)
 
+    # 对app进行去重操作
+    df_Databank = df_Databank.drop_duplicates(['Rule Code'])
+
+
     # 删除df_Databank中指定的列， 重新生成为 df_Databank_csv，最后写入csv格式的文件
     # df_Databank_csv = df_Databank.drop(['APP name', '一级标签', '二级标签', 'Consolidated label code'], axis=1)
 
@@ -93,11 +97,19 @@ def Lable2label(input, insheet, output, outsheet):
         os.remove(outputName_csv)
     #  sep='-' 设置分割符    index=False 设置不保留索引     header=False 设置不保留列名
     # df_Databank_csv.to_csv(outputFile_csv, index=False, sep=',', header=False)
-    df_Databank.to_csv(outputName_csv, index=False, sep=',', header=False, columns=['Rule Code','APP name', '文章分类标签', 'App行为', '兴趣定向(一级)', '兴趣定向(一级&二级)'])
+    df_Databank.to_csv(outputName_csv, index=False, sep=',', header=False, columns=['Rule Code', '文章分类标签', 'App行为', '兴趣定向(一级)', '兴趣定向(一级&二级)'])
 
     # 输出app_local app本地一级标签和二级标签(appid  appname  label1  label2)
     df_Databank.to_csv(app_localData, index=False, sep=',', header=False,
                        columns=['Rule Code', 'APP name', '一级标签', '二级标签'])
+
+
+
+
+
+
+
+
 
 
 if __name__ == '__main__':
