@@ -24,7 +24,7 @@ age_ttage = 'age_ttage.csv'
 app_label = 'app_label.csv'
 # 输入标签组合 名称
 labelGroup = 'labelGroup.xlsx'
-# 输出标签着 名称
+# 输出标签着 文件名称
 outputLabelGroup = 'outLabelGroup.xlsx'
 
 # 合成输入标签组合文件路径
